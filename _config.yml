@@ -1,0 +1,6 @@
+title: "Music Lesson Tracker"
+description: "Android application to track music lessons and students progress."
+url: "https://SerafinTech.github.io"
+baseurl: "/music-lesson-tracker"
+
+theme: jekyll-theme-minimal
