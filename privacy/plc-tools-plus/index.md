@@ -1,3 +1,6 @@
+---
+layout: null
+---
 **App Name:** PLC Tools Plus
 **Developer:** Jason Serafin
 **Effective Date:** 8/5/2026
