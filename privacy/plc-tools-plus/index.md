@@ -1,5 +1,6 @@
 ---
-layout: null
+layout: blank
+title: PLC Tools Plus:Privacy
 ---
 **App Name:** PLC Tools Plus
 **Developer:** Jason Serafin
