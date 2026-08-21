@@ -5,17 +5,17 @@ title: PLC Tools Plus:Privacy
 **App Name:** PLC Tools Plus
 **Developer:** Jason Serafin
 **Effective Date:** 8/5/2026
-**Last Updated:** 8/5/2026
+**Last Updated:** 8/20/2026
 
 ## Overview
 
 PLC Tools Plus ("the App," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains our data practices for the App.
 
-**In short: the App does not collect, store, transmit, or share any personal data or usage information from you.**
+**In short: the App does not collect personal information about you. The App uses RevenueCat to process in-app purchases, which involves limited purchase data that is not linked to your identity.**
 
 ## Data We Collect
 
-The App does not collect any data. Specifically, the App:
+The App itself does not collect any personal data. Specifically, the App:
 
 - Does **not** collect personal information (such as name, email address, or phone number)
 - Does **not** collect location data
@@ -24,27 +24,35 @@ The App does not collect any data. Specifically, the App:
 - Does **not** use cookies or similar tracking technologies
 - Does **not** require account creation, sign-in, or registration
 
-All functionality of the App operates locally on your device. No information is sent to us or to any third party.
+All core functionality of the App operates locally on your device.
+
+### Purchases
+
+If you make an in-app purchase, purchase information (such as products purchased, transaction identifiers, and subscription status) is processed through RevenueCat, our in-app purchase management provider. This purchase data is used for analytics and app functionality (such as verifying entitlements and managing subscriptions). This data is **not linked to your identity**.
 
 ## Third-Party Services
 
-The App does not integrate with, or share data with, any third-party services, analytics providers, advertising networks, or crash-reporting tools.
+The App uses the following third-party service:
+
+- **RevenueCat** – used to process and manage in-app purchases and subscriptions. RevenueCat may collect purchase-related data as described above. For more information, see [RevenueCat's Privacy Policy](https://www.revenuecat.com/privacy).
+
+The App does not integrate with any other third-party analytics providers, advertising networks, or crash-reporting tools.
 
 ## Data Sharing and Disclosure
 
-Because the App does not collect any data, there is no data to share, sell, rent, or disclose to third parties for any purpose, including advertising or marketing.
+Aside from purchase data shared with RevenueCat to process in-app purchases, there is no data to share, sell, rent, or disclose to third parties for any purpose, including advertising or marketing.
 
 ## Children's Privacy
 
-The App does not knowingly collect any information from anyone, including children under the age of 13 (or the relevant age of digital consent in your jurisdiction). Because no data is collected at all, this applies equally to users of all ages.
+The App does not knowingly collect personal information from anyone, including children under the age of 13 (or the relevant age of digital consent in your jurisdiction).
 
 ## Data Security
 
-Since the App does not collect, store, or transmit any data, there is no data at risk of unauthorized access, use, or disclosure through the App.
+The App does not collect, store, or transmit personal data beyond the purchase data described above, which is handled by RevenueCat. There is no additional data at risk of unauthorized access, use, or disclosure through the App.
 
 ## Your Rights
 
-Because we do not collect any personal data about you, there is no personal data for us to provide, correct, delete, or export. If you have questions about this, you can contact us using the information below.
+Because we do not collect personal data that is linked to your identity, there is generally no personal data for us to provide, correct, delete, or export. If you have questions about purchase data processed by RevenueCat, you may also contact RevenueCat directly. If you have questions about this, you can contact us using the information below.
 
 ## Changes to This Privacy Policy
 
@@ -52,7 +60,11 @@ We may update this Privacy Policy from time to time, for example to reflect chan
 
 ## App Store "Privacy Nutrition Label"
 
-Consistent with this policy, the App's privacy label on the App Store reflects that **no data is collected**.
+Consistent with this policy, the App's privacy label on the App Store reflects the following:
+
+- **Purchases** – collected, used for **Analytics** and **App Functionality**. **Not linked to you.**
+
+No other data types are collected.
 
 ## Contact Us
 
