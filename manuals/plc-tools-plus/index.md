@@ -131,7 +131,9 @@ Tapping a device from the Browser opens its detail screen, which offers:
   to this device (Config/Input/Output assembly numbers and sizes, data type, and RPI).
   See [IO Scanning](#io-scanning--connecting-to-a-real-devices-io). This button is
   hidden if the device's IP is actually one of your own device's network interfaces
-  (you can't IO-connect to yourself), and is Pro-gated.
+  (you can't IO-connect to yourself), if the device doesn't advertise Class 1 I/O
+  support (checked via a quick one-off ListServices query when this screen loads),
+  and is Pro-gated.
 - If an IO connection already exists for this device, the screen instead shows its
   live status (Connecting/Connected/error) with **Disconnect**, **Remove**, and
   **Go To IO Connections** actions.
