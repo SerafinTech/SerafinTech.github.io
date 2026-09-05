@@ -59,20 +59,21 @@ Everything after that is reference material for when you need it.
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Getting Started](#getting-started)
-3. [The Devices Tab](#the-devices-tab)
-4. [The Device Detail Screen](#the-device-detail-screen)
-5. [The Tag List Tab](#the-tag-list-tab)
-6. [The Data Monitor Tab](#the-data-monitor-tab)
-7. [The IO Tab](#the-io-tab)
-8. [IO Scanning — Connecting to a Real Device's IO](#io-scanning--connecting-to-a-real-devices-io)
-9. [The Simulated IO Device](#the-simulated-io-device)
-10. [Network & Interface Selection](#network--interface-selection)
-11. [The Demo PLC](#the-demo-plc)
-12. [Subscription & Pro Features](#subscription--pro-features)
-13. [Troubleshooting](#troubleshooting)
-14. [Glossary](#glossary)
-15. [Trademarks](#trademarks)
+2. [Running in the Foreground](#running-in-the-foreground)
+3. [Getting Started](#getting-started)
+4. [The Devices Tab](#the-devices-tab)
+5. [The Device Detail Screen](#the-device-detail-screen)
+6. [The Tag List Tab](#the-tag-list-tab)
+7. [The Data Monitor Tab](#the-data-monitor-tab)
+8. [The IO Tab](#the-io-tab)
+9. [IO Scanning — Connecting to a Real Device's IO](#io-scanning--connecting-to-a-real-devices-io)
+10. [The Simulated IO Device](#the-simulated-io-device)
+11. [Network & Interface Selection](#network--interface-selection)
+12. [The Demo PLC](#the-demo-plc)
+13. [Subscription & Pro Features](#subscription--pro-features)
+14. [Troubleshooting](#troubleshooting)
+15. [Glossary](#glossary)
+16. [Trademarks](#trademarks)
 
 ---
 
@@ -86,6 +87,20 @@ and — going further than a typical browsing tool — act as an **IO Scanner**
 for testing without a second physical controller. No programming software required.
 
 The app has four tabs: **Home**, **Devices**, **Data Monitor**, and **IO**.
+
+## Running in the Foreground
+
+Every live connection PLC Tools Plus holds — a controller's tag session, an IO Scanner
+connection, or the Simulated IO Device — depends on the app actually running in the
+foreground. Backgrounding it for any reason (switching apps, locking the screen, or
+even just tapping an external link the app opens, like the User Manual or Privacy
+Policy links on the Home tab) suspends the app and interrupts those communications.
+Most reconnect automatically once you return to the app (see the various "reconnects
+automatically" notes throughout this manual), but there's a gap while you're away.
+
+The first time you **read a tag list**, **start the Simulated IO Device**, or **connect
+an IO connection**, a one-time warning reminds you of this — it won't show again after
+that.
 
 ## Getting Started
 
@@ -126,7 +141,10 @@ Tapping a device from the Browser opens its detail screen, which offers:
   addressed and how often subscribed tag values are re-read (used by Live Update on
   the Tag List tab).
 - **Read Tag List** — reads the controller's tag list (only shown for controllers that
-  support it) and opens the [Tag List tab](#the-tag-list-tab) for that device.
+  support it) and opens the [Tag List tab](#the-tag-list-tab) for that device. The first
+  time you do this, a one-time warning reminds you the app needs to stay in the
+  foreground for this to keep working — see
+  [Running in the Foreground](#running-in-the-foreground).
 - **IO Connect Setup** — opens a form to configure and open a Class 1 I/O connection
   to this device (Config/Input/Output assembly numbers and sizes, data type, and RPI).
   See [IO Scanning](#io-scanning--connecting-to-a-real-devices-io). This button is
@@ -222,7 +240,9 @@ drill into **Input**, **Output**, and **Config** byte-by-byte or bit-by-bit:
   won't show again after that (see [The Simulated IO Device](#the-simulated-io-device),
   which shares the same warning).
 - Starting an IO connection (both the initial setup and reconnecting) is a **Pro
-  feature**.
+  feature**. The first time you connect one, a one-time warning reminds you the app
+  needs to stay in the foreground for it to keep working — see
+  [Running in the Foreground](#running-in-the-foreground).
 - If your Pro entitlement lapses while a connection is active (subscription expires,
   is refunded, etc.), the app disconnects it automatically the next time it re-checks
   your entitlement — at launch or when returning to the foreground — rather than
@@ -263,7 +283,9 @@ connect to.
 - Starting the simulated device is a **Pro feature**, and it's also **stopped
   automatically** if your Pro entitlement lapses while it's running — re-checked at
   app launch and whenever the app returns to the foreground, not just when you first
-  start it.
+  start it. The first time you start it, a one-time warning reminds you the app needs
+  to stay in the foreground for it to keep working — see
+  [Running in the Foreground](#running-in-the-foreground).
 - **Stale connections are cleaned up automatically.** If a connected originator goes
   silent (crashes, network drops, its own app is killed) without a clean disconnect,
   the simulated device notices after roughly 4 missed RPI intervals and drops that
