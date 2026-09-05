@@ -1,8 +1,44 @@
 ---
-layout: page
-title: PLC Tools Plus — User Manual
-description: Reference guide covering every feature of PLC Tools Plus, including the technical nuances behind network binding, IO scanning, and the simulated IO device.
+layout: blank
+title: PLC Tools Plus:Manual
 ---
+
+<!--
+  Published as manuals/plc-tools-plus/index.md in the serafintech.github.io repo
+  (SerafinTech/SerafinTech.github.io), alongside privacy/plc-tools-plus/index.md
+  and support/plc-tools-plus/index.md. That repo is a single Jekyll site rooted
+  at its own _config.yml (theme: jekyll-theme-minimal) - there's no per-page
+  _config.yml/Gemfile/theme override support, and "layout: blank" (matching
+  those sibling pages) is what renders this as a bare, unstyled fragment with
+  no site chrome, which is why the styling below is inlined directly rather
+  than done via a separate Sass asset importing another theme (that approach
+  previously broke the live build with "File to import not found: minima",
+  since the site's real theme has no such partial to import).
+-->
+
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+    line-height: 1.6;
+  }
+  h1 { font-size: 28px; font-weight: 800; margin-top: 0; color: #222; }
+  h2 { font-size: 20px; font-weight: 700; margin-top: 2.2em; padding-bottom: 6px; border-bottom: 2px solid #E6F4FE; color: #222; }
+  h3 { font-size: 16px; font-weight: 700; color: #222; }
+  a { color: #2196F3; text-decoration: none; }
+  a:hover { color: #1769aa; text-decoration: underline; }
+  code { background-color: #f2f2f2; border: 1px solid #ddd; border-radius: 6px; padding: 2px 6px; font-size: 0.9em; }
+  pre { background-color: #f2f2f2; border: 1px solid #ddd; border-radius: 8px; padding: 12px 14px; overflow-x: auto; }
+  pre code { background: none; border: none; padding: 0; }
+  blockquote { border-left: 4px solid #2196F3; background-color: #E6F4FE; color: #444; border-radius: 0 8px 8px 0; padding: 10px 16px; margin-left: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+  th { background-color: #f2f2f2; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
+</style>
 
 # PLC Tools Plus — User Manual
 
