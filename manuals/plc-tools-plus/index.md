@@ -269,8 +269,8 @@ button in that picker for a short in-context reminder; the full explanation is h
   socket bound that narrowly. Pick a specific interface when you need to control
   *which* network a connection goes out on (e.g. your device has both Wi-Fi and
   cellular active); leave it on "All interfaces" if you want to be discoverable by
-  broadcast scans.
-- **Custom…** — type any IPv4 address directly if it isn't in the detected list.
+  broadcast scans. Only interfaces this device actually has are offered - there's no
+  freeform IP entry.
 - **Why the Simulated Device's Class 1 I/O socket is always on all interfaces,
   regardless of the Network setting:** the IO Scanner and the Simulated Device can both
   be active on the same device at the same time, and they must share the exact same
