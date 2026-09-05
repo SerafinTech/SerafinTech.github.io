@@ -237,7 +237,10 @@ connect to.
   its identity/broadcast-discovery responder bind to. This does **not** scope the
   actual Class 1 I/O data socket — see
   [Network & Interface Selection](#network--interface-selection) for why, and what
-  trade-off picking a specific interface actually buys you.
+  trade-off picking a specific interface actually buys you. The first time you attempt
+  to change this, a one-time warning explains that moving off "All interfaces"
+  (0.0.0.0) can make the device undiscoverable outside that one interface - it won't
+  show again after that.
 - Settings can only be edited while the device is **stopped**.
 - Once started, the screen shows live status (**Running**, with a connected-device
   count) and, once a connected originator has actually sent its first packet of I/O
@@ -255,9 +258,12 @@ connect to.
 
 ## Network & Interface Selection
 
-Both the Devices tab's scan and the Simulated Device's Network setting use the same
-interface picker, and both come with the same real trade-offs. Tap the small **?**
-button in that picker for a short in-context reminder; the full explanation is here.
+The Devices tab's scan and the Simulated Device's Network setting share the same
+interface picker, and both come with the same real trade-offs, explained in full here.
+The Devices tab's picker has a small **?** button for a short in-context reminder; the
+Simulated Device's shows a one-time warning instead the first time you attempt to
+change it (see [The Simulated IO Device](#the-simulated-io-device)), since that's the
+one place where losing discoverability actually defeats the setting's purpose.
 
 - **All interfaces (0.0.0.0)** — the default. On Android this genuinely listens on
   every network interface. **On iOS, binding to `0.0.0.0` only actually listens on
