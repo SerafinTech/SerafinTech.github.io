@@ -1,0 +1,39 @@
+# GitHub Pages / Jekyll site configuration for the PLC Tools Plus user manual.
+#
+# This repo only authors the manual content (manual.md) - it is not itself the
+# GitHub Pages site. The privacy policy is published at
+# https://serafintech.github.io/privacy/plc-tools-plus/, which lives in the
+# separate `serafintech.github.io` repo. To publish this manual the same way:
+#
+#   1. Copy manual.md and this _config.yml into that repo, mirroring the privacy
+#      policy's layout - e.g. as `manual/plc-tools-plus/index.md` and
+#      `manual/plc-tools-plus/_config.yml` (or merge these settings into that
+#      repo's existing root _config.yml if it already has one).
+#   2. Confirm the published URL (it should end up something like
+#      https://serafintech.github.io/manual/plc-tools-plus/).
+#   3. Replace the MANUAL_URL placeholder in
+#      src/app/(tabs)/home/index.tsx with that real URL.
+#
+# "minima" is GitHub Pages' built-in theme optimized for long-form reading
+# (clean typography, no distracting hero banner) - a better fit for a reference
+# manual than the more marketing-oriented themes like Cayman.
+theme: minima
+
+title: PLC Tools Plus — User Manual
+description: >-
+  Reference guide for PLC Tools Plus: EtherNet/IP device discovery, tag
+  browsing, live monitoring, IO scanning, and the built-in simulated IO
+  device - including the nuances behind each.
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  auto_ids: true
+
+minima:
+  skin: auto # respects the reader's OS light/dark mode preference
+  show_excerpts: false
+
+# This manual is a single long page rather than a blog/post collection.
+show_downloads: false
