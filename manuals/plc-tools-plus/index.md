@@ -212,6 +212,12 @@ drill into **Input**, **Output**, and **Config** byte-by-byte or bit-by-bit:
   have to re-enter assembly numbers next time — it's listed with a **Connect** button
   instead. Connections marked active also reconnect automatically the next time the
   app launches.
+- **Editing** a connection's settings is allowed even while it's connected — saving
+  reconnects it with the new settings, since assembly/size/RPI changes need a full
+  disconnect-and-reconnect either way. The first time you edit a connected connection,
+  a one-time warning explains that saving will briefly interrupt communications; it
+  won't show again after that (see [The Simulated IO Device](#the-simulated-io-device),
+  which shares the same warning).
 - Starting an IO connection (both the initial setup and reconnecting) is a **Pro
   feature**.
 - If your Pro entitlement lapses while a connection is active (subscription expires,
@@ -241,7 +247,11 @@ connect to.
   to change this, a one-time warning explains that moving off "All interfaces"
   (0.0.0.0) can make the device undiscoverable outside that one interface - it won't
   show again after that.
-- Settings can only be edited while the device is **stopped**.
+- **Editing** is allowed even while the device is running — saving restarts it with the
+  new settings (briefly dropping any active connections). The first time you edit a
+  running device, a one-time warning explains that saving will briefly interrupt
+  communications; it won't show again after that (shared with the same warning on
+  editing a connected IO connection, above).
 - Once started, the screen shows live status (**Running**, with a connected-device
   count) and, once a connected originator has actually sent its first packet of I/O
   data, a **Connected From** line showing that device's IP address.
