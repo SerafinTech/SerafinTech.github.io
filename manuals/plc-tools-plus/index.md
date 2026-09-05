@@ -192,7 +192,10 @@ its own dedicated screen reachable from the top of this tab.
 Set up via **IO Connect Setup** on a device's detail screen. The form asks for:
 
 - **Config / Input / Output** — each needs an **Assembly** instance number and a
-  **Size** in bytes (0–505 bytes each).
+  **Size** in bytes (0–505 bytes each). Defaults to the same instance numbers/sizes as
+  the [Simulated IO Device](#the-simulated-io-device)'s own defaults (Config 1/0 bytes,
+  Input 100/4 bytes, Output 101/4 bytes), so a fresh setup on each side talks to the
+  other with zero editing.
 - **Data Type** — how raw bytes are interpreted when you drill into individual
   elements (e.g. `SINT`, `INT`, `DINT`, `REAL`).
 - **RPI** (Requested Packet Interval) — how often, in milliseconds, data is exchanged
