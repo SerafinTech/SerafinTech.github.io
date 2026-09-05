@@ -104,27 +104,37 @@ Tapping a device from the Browser opens its detail screen, which offers:
 
 Reached via **Read Tag List** on a device, this tab lists every tag the controller
 reported, including structures (UDTs) and arrays — tap into either to drill down to
-their members/elements.
+their members/elements. Browsing the list itself — tag names, types, and structure —
+is free for any device.
 
-- **Writing values** is free and ungated. Tap a writable tag to open the write modal
-  (boolean tags get a True/False selector; numeric tags get a validated text field).
-- **Live Update** (top-right toggle) subscribes to visible, readable tags and updates
-  their values in real time at the controller's configured **Update Rate**. This is a
-  **Pro feature** — toggling it on prompts the subscription paywall if you aren't
-  already Pro. **The Demo PLC is exempt** from this paywall, so you can try Live
-  Update risk-free before subscribing.
+- **Live Update** (top-right toggle) subscribes to visible, readable tags and is what
+  actually populates their values at the controller's configured **Update Rate** —
+  without it, a real device's tags show no value at all. Toggling it on is a **Pro
+  feature** and prompts the subscription paywall if you aren't already Pro.
+- **Writing values** on a real device is its own **Pro feature** — tapping **Write
+  Value** prompts the subscription paywall directly if you aren't already Pro, the same
+  as toggling Live Update does. Once you're Pro, the write still needs the tag to
+  already be actively subscribed (Live Update on, with its value showing) or it fails
+  with **"Tag is not available to write."** Turn on Live Update first, then tap a
+  writable tag to open the write modal (boolean tags get a True/False selector; numeric
+  tags get a validated text field).
+- **The Demo PLC is exempt** from all of the above — viewing values, writing, and Live
+  Update are always free there, so you can try the full flow before subscribing.
 
 ## The Data Monitor Tab
 
 Data Monitor is a cross-device watch list: pin any readable tag from any controller's
 Tag List (via its "+" button) and it shows up here, grouped by device, regardless of
-which controller you currently have open.
+which controller you currently have open. Pinning a tag is itself always free.
 
 - Tags update live the same way Tag List's Live Update does, and are gated by the same
   Pro check — with the same Demo PLC exemption, checked per-tag (so a mix of real and
   Demo PLC tags in the same list works correctly, only the real-device tags are
   gated).
-- **Writing values** from Data Monitor is free, same as Tag List.
+- **Writing values** from Data Monitor works the same way as Tag List — free for the
+  Demo PLC; for a real device it prompts the Pro paywall directly if you aren't
+  subscribed yet, and still requires the tag to already be actively live (Live Update
+  on) before the write itself succeeds.
 
 ## The IO Tab
 
@@ -166,6 +176,10 @@ drill into **Input**, **Output**, and **Config** byte-by-byte or bit-by-bit:
   app launches.
 - Starting an IO connection (both the initial setup and reconnecting) is a **Pro
   feature**.
+- If your Pro entitlement lapses while a connection is active (subscription expires,
+  is refunded, etc.), the app disconnects it automatically the next time it re-checks
+  your entitlement — at launch or when returning to the foreground — rather than
+  leaving it running unpaid.
 
 ## The Simulated IO Device
 
@@ -192,7 +206,10 @@ connect to.
   data, a **Connected From** line showing that device's IP address.
 - **Shortcuts** work the same way as on the IO Scanner side — pin any byte/bit for
   quick access.
-- Starting the simulated device is a **Pro feature**.
+- Starting the simulated device is a **Pro feature**, and it's also **stopped
+  automatically** if your Pro entitlement lapses while it's running — re-checked at
+  app launch and whenever the app returns to the foreground, not just when you first
+  start it.
 - **Stale connections are cleaned up automatically.** If a connected originator goes
   silent (crashes, network drops, its own app is killed) without a clean disconnect,
   the simulated device notices after roughly 4 missed RPI intervals and drops that
@@ -247,22 +264,29 @@ List/Data Monitor-only stand-in, not a simulated target device (use the
 
 ## Subscription & Pro Features
 
-PLC Tools Plus is free to download and use for browsing and tag work. A subscription
-("Pro") unlocks the features that involve maintaining a live connection beyond simple
-tag reads:
+PLC Tools Plus is free to download and use for discovery and browsing. A subscription
+("Pro") unlocks everything that involves an actual live value — viewing it, writing
+it, or exchanging it continuously:
 
 **Free, no subscription required:**
 - Discovering devices (Devices tab / Browser)
 - Reading device properties and the tag list
-- Browsing tags, structures, and arrays
-- Writing tag values (Tag List and Data Monitor)
+- Browsing tags, structures, and arrays (names and types, not live values)
 - Pinning tags to Data Monitor
-- The entire Demo PLC, including its Live Update
+- The entire Demo PLC, including viewing values, writing values, and Live Update
 
 **Requires Pro:**
-- Live Update (Tag List and Data Monitor) for real devices
-- Setting up and starting an IO Scanner connection to a real device
+- Viewing tag values on real devices (Live Update), in both Tag List and Data Monitor
+- Writing tag values on real devices, in both Tag List and Data Monitor — gated
+  independently of Live Update, so tapping Write prompts the paywall even if Live
+  Update was never turned on
+- Setting up, starting, and reconnecting an IO Scanner connection to a real device
 - Starting the Simulated IO Device
+
+These aren't just gated at the moment you start them — the app re-verifies your
+entitlement at launch and whenever it returns to the foreground, and stops the
+Simulated IO Device and any active IO connections automatically if your subscription
+has lapsed in the meantime.
 
 A free trial is available on first subscribing (see the paywall for current terms and
 pricing, which are managed through the App Store/Play Store). If you've subscribed on
@@ -271,6 +295,11 @@ recover your entitlement.
 
 ## Troubleshooting
 
+- **"Tag is not available to write"** — the tag you're trying to write to isn't
+  currently subscribed. If you're not Pro on a real device, tapping Write shows the
+  subscription paywall instead of this message; if you are Pro (or on the Demo PLC)
+  and still see it, Live Update is off — turn it on and wait for the tag's value to
+  appear before writing.
 - **"Network Error" while scanning for devices** — the scan's socket failed, most
   often because the selected interface no longer exists (Wi-Fi was turned off or
   switched networks). Reopen the interface picker and re-select or re-detect an
@@ -295,6 +324,12 @@ recover your entitlement.
   behavior, not a bug, if the other side went quiet for a while; see
   [The Simulated IO Device](#the-simulated-io-device)'s note on automatic stale
   connection cleanup.
+- **The Simulated Device or an IO connection stopped on its own, with no disconnect
+  from either side** — your Pro entitlement lapsed (subscription expired, was
+  refunded, etc.). The app checks entitlement at launch and whenever it returns to the
+  foreground, and stops both features immediately if you're no longer Pro. Resubscribe,
+  or use **Restore Purchases** on the Home tab if you believe this is a mistake, then
+  start it again.
 
 ## Glossary
 

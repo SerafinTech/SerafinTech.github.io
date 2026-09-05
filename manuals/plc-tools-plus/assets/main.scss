@@ -1,0 +1,125 @@
+---
+# Front matter is required here (even empty) for Jekyll/Sass to process this
+# file at all - see https://jekyllrb.com/docs/assets/#sassscss.
+---
+
+@import "minima";
+
+// Re-skins minima to match the PLC Tools Plus app itself, rather than
+// minima's stock look. Colors are pulled straight from the app's own
+// centralized palette (src/styles/index.ts) so this manual reads as an
+// extension of the app, not a generic doc site:
+//   primary (accent/links):  #2196F3
+//   success (checkmarks):    #4CAF50
+//   card background:         #f2f2f2 / border #ddd
+//   highlight background:    #E6F4FE / border #90caf9
+//   body text:                #444 / headings default (near-black)
+//
+// These rules are appended after minima's own styles in the same compiled
+// file, so plain selectors here win on load order without needing to fight
+// minima's internal Sass/CSS-variable names (which vary across versions).
+
+$accent: #2196F3;
+$accent-dark: #1769aa;
+$card-bg: #f2f2f2;
+$card-border: #ddd;
+$highlight-bg: #E6F4FE;
+$highlight-border: #90caf9;
+$body-text: #444;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: $body-text;
+}
+
+// A thin top border in the app's accent color stands in for a "brand bar"
+// the way the app's own Home tab leads with a small blue "SerafinTech" label.
+.site-header {
+  border-top: 4px solid $accent;
+  border-bottom: 1px solid $card-border;
+}
+
+.site-title,
+.site-title:visited {
+  color: $accent !important;
+  font-weight: 800;
+}
+
+.site-nav .page-link {
+  color: $body-text;
+  font-weight: 600;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: #222;
+}
+
+h2 {
+  margin-top: 2em;
+  padding-bottom: 6px;
+  border-bottom: 2px solid $highlight-bg;
+}
+
+a {
+  color: $accent;
+
+  &:visited {
+    color: $accent;
+  }
+
+  &:hover {
+    color: $accent-dark;
+    text-decoration: underline;
+  }
+}
+
+// Inline code and fenced code blocks get the app's rounded "card" treatment
+// (same radius/border/background used for input fields and info boxes
+// throughout the app) instead of minima's flat default.
+code {
+  background-color: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+pre.highlight,
+div.highlight {
+  background-color: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 8px;
+}
+
+pre.highlight code {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+// Blockquotes double as the manual's "callout" style, echoing the app's
+// highlighted-info-box treatment (light blue fill, blue left border).
+blockquote {
+  border-left: 4px solid $accent;
+  background-color: $highlight-bg;
+  color: $body-text;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 18px;
+  margin-left: 0;
+}
+
+// Table styling matches the app's card/border language for anything tabular
+// in the manual (there isn't much today, but keeps it consistent if added).
+table {
+  border: 1px solid $card-border;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background-color: $card-bg;
+}
+
+.site-footer {
+  border-top: 1px solid $card-border;
+}
